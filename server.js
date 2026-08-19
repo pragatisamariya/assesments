@@ -7,8 +7,10 @@ const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 app.use(express.json());
 const reviewRouter = require("./src/routs/review.routs");
+const staffRouter = require("./src/routs/staff.route");
 const { notFound , errorHandler } = require("./src/middleware/errorHandler");
 app.use("/review" , reviewRouter);
+app.use("/staff" , staffRouter);
 app.use(notFound);
 app.use(errorHandler);
 app.use("/" , (req,res)=>{

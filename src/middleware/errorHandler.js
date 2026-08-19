@@ -29,7 +29,21 @@ message = ` invalid value for ${err.value}`;
         message = " this email already exists";
     }
 
-    const response = {
+    
+
+  if (err.name === "JsonWebTokenError") {
+    statusCode = 401;
+    message = "Invalid token";
+    errors = [];
+  }
+
+  else if (err.name === "TokenExpiredError") {
+    statusCode = 401;
+    message = "Token expired";
+    errors = [];
+  }
+
+  const response = {
     success: false,
     message,
     errors

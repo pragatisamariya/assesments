@@ -1,5 +1,5 @@
 const	express	=	require("express");
-const	ReviewModel	=	require("../model");
+const	{ReviewModel}	=	require("../model");
 
 
 const {
@@ -17,7 +17,7 @@ const	review	=	await	ReviewModel.create({
 title,	comment,	rating,	reviewerName,
 });
 if	(alreadyReviewed)	{
-    
+
 return	{
     alreadyReviewed:true,
     review:null,
