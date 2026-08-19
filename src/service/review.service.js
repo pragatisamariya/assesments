@@ -1,16 +1,28 @@
 const	express	=	require("express");
 const	ReviewModel	=	require("../model");
 
+
+const {
+  conflict,
+  notFound,
+  badRequest
+} = require("../utils/apiError");
+
 const createReviewService = async (data)=>{
   try  {
     const {	title,	comment,	rating,	reviewerName	} = data;
     const	alreadyReviewed	=	await	ReviewModel.findOne({	reviewerName,	title	});
-if	(alreadyReviewed)	{
-return	null;
-}
+
 const	review	=	await	ReviewModel.create({
 title,	comment,	rating,	reviewerName,
 });
+if	(alreadyReviewed)	{
+    
+return	{
+    alreadyReviewed:true,
+    review:null,
+}
+}
  return {alreadyReviewed , review}}
 catch(err){
     console.log(err);

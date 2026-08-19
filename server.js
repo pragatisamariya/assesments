@@ -7,7 +7,10 @@ const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 app.use(express.json());
 const reviewRouter = require("./src/routs/review.routs");
+const { notFound , errorHandler } = require("./src/middleware/errorHandler");
 app.use("/review" , reviewRouter);
+app.use(notFound);
+app.use(errorHandler);
 app.use("/" , (req,res)=>{
 res.status(404).send("page not found");
 });

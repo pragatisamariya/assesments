@@ -55,3 +55,5 @@ const updateReviewSchema = joi.object({
 .messages({
   "object.min": "At least one field is required for update",
 });
+
+module.exports = {createReviewSchema , getReviewSchema , reviewIdSchema , updateReviewSchema}

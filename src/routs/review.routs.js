@@ -8,12 +8,12 @@ const	router	=	express.Router();
 router.post("/createReview",validationMiddleware(validationSchema.createReviewSchema), reviewController.reviewController	);
 router.get("/getReviews",validationMiddleware(validationSchema.getReviewSchema),	reviewController.getReviewsController);
 
-router.patch("/updateReviews" , validationMiddleware(validationSchema.updateReviewSchema) , reviewController.updateReviews);
+router.patch("/updateReviews/:id" , validationMiddleware(validationSchema.updateReviewSchema) , reviewController.updateReviews);
 router.get("/getReviews/:id" , validationMiddleware(validationSchema.reviewIdSchema) ,reviewController.getReviewsById );
 
-router.delete("/deleteReviews" , reviewController.deleteReviews);
+router.delete("/deleteReviews/:id" , reviewController.deleteReviews);
 
-router.patch("/reviews/:id/approve" ,reviewController.statusApprove );
+router.patch("/:id/approve" ,reviewController.statusApprove );
 
 
 module.exports	=	router;
