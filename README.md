@@ -69,8 +69,10 @@ Search	me	kuch	nahi	mila  --> 200
 Mongoose	connection	tut	gaya  -- > 500
 
 assesment 6 
+
 isModified("password")	ka	check	kyun	hai?	Ye	samajhna	is	assignment	ka	sabse	important	point	hai.
 => this check is important because password is hashing on basis of save not when password change so when dev  change  only one field  other than password and again do  staff.save() this pre method would run again and same hashed password will hash again 
+
 Soch	ke	batao
 
 1.	DB	me	password	ka	hash	pada	hai.	Login	ke	waqt	user	plain	password	bhejta	hai.	
